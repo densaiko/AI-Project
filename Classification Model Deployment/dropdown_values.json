@@ -1,0 +1,63 @@
+{
+  "department": [
+    "Analytics",
+    "Finance",
+    "HR",
+    "Legal",
+    "Operations",
+    "Procurement",
+    "R&D",
+    "Sales & Marketing",
+    "Technology"
+  ],
+  "region": [
+    "region_1",
+    "region_10",
+    "region_11",
+    "region_12",
+    "region_13",
+    "region_14",
+    "region_15",
+    "region_16",
+    "region_17",
+    "region_18",
+    "region_19",
+    "region_2",
+    "region_20",
+    "region_21",
+    "region_22",
+    "region_23",
+    "region_24",
+    "region_25",
+    "region_26",
+    "region_27",
+    "region_28",
+    "region_29",
+    "region_3",
+    "region_30",
+    "region_31",
+    "region_32",
+    "region_33",
+    "region_34",
+    "region_4",
+    "region_5",
+    "region_6",
+    "region_7",
+    "region_8",
+    "region_9"
+  ],
+  "education": [
+    "Bachelor's",
+    "Below Secondary",
+    "Master's & above"
+  ],
+  "gender": [
+    "f",
+    "m"
+  ],
+  "recruitment_channel": [
+    "other",
+    "referred",
+    "sourcing"
+  ]
+}
