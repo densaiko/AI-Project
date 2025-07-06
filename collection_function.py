@@ -278,14 +278,21 @@ def distribution_multiple_values(data, label, title):
 
 def heatmap_corr(data, title, method):
     """
-    This function is used to calculate the correlation among the features
+    Function to calculate and visualize the correlation matrix of a DataFrame.
+    
+    Parameters:
+    - data: pd.DataFrame, the input data
+    - method: str, the method of correlation ('pearson', 'kendall', 'spearman')
+    
+    Returns:
+    - corr_matrix: pd.DataFrame, the correlation matrix
     """
 
     # Calculate the correlation matrix
     correlation_matrix = data.corr(method=method)
 
     # Plot the heatmap
-    plt.figure(figsize=(8, 8))  # Adjust the figure size as needed
+    plt.figure(figsize=(10, 8))  # Adjust the figure size as needed
     sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1, square=True, 
                 linewidths=0.5, cbar_kws={"shrink": .8})
     plt.title(title)
@@ -307,10 +314,13 @@ def stacked_bar_chart(data, ind, col, val, title, xlabel, ylabel, legend):
     """
 
     # Pivot the data for a stacked bar chart
-    pivot_cumsum = data.pivot_table(index=ind, columns=col, values=val)
+    pivot_cumsum = data.pivot_table(index=ind, columns=col, values=val, aggfunc='count')
 
     pivot_cumsum = pivot_cumsum.sort_values(by=pivot_cumsum.index[0], axis=1, ascending=False)
     pivot_cumsum = pivot_cumsum.fillna(0)
+
+    # Calculate row-wise total for percentage calculation
+    row_totals = pivot_cumsum.sum(axis=1)
 
     # Plot the stacked bar chart
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -321,28 +331,33 @@ def stacked_bar_chart(data, ind, col, val, title, xlabel, ylabel, legend):
 
     # Use the color for each product type
     for idx, product in enumerate(pivot_cumsum.columns):
+        values = pivot_cumsum[product].values
         sns.barplot(
             x=pivot_cumsum.index,
-            y=pivot_cumsum[product],
+            y=values,
             label=product,
             ax=ax,
-            color=colors[idx],  # Use the color from the extended palette
+            color=colors[idx],
             bottom=bottom_value
         )
         
         # Add data labels for each bar segment
-        for i, value in enumerate(pivot_cumsum[product]):
-            if value > 0:  # Only show labels for non-zero values
+        for i, value in enumerate(values):
+            if value > 0:
+                percent = (value / row_totals.iloc[i]) * 100
+                label = f"{int(value)} ({percent:.1f}%)"
                 ax.text(
                     i,
                     bottom_value[i] + value / 2,
-                    f"{value:.1f}%",
+                    label,
                     ha="center",
                     va="center",
-                    fontsize=10,
+                    fontsize=9,
+                    color="white" if percent > 10 else "black"  # Optional: contrast for readability
                 )
+
         # Update bottom values for stacking
-        bottom_value = [bottom_value[j] + pivot_cumsum[product].iloc[j] for j in range(len(pivot_cumsum))]
+        bottom_value = [bottom_value[j] + values[j] for j in range(len(values))]
 
     # Customize the plot
     ax.set_title(title, fontsize=14)
