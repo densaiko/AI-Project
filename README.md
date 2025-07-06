@@ -1,5 +1,8 @@
 **Overview Materi Training Astra Honda Motor: Data Science & AI (5 Hari)**
 
+- [![Classification ML Deployment](https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-on-spaces-sm.svg)](https://huggingface.co/spaces/densaiko/EmployeePromotionPrediction)
+- [![Regression ML Deployment](https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-on-spaces-sm.svg)](https://huggingface.co/spaces/densaiko/AHMPredictCar)
+
 ---
 
 ### **Day 1: Python for AI & Data Preprocessing**
