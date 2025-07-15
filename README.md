@@ -2,6 +2,7 @@
 
 - Classification ML Deployment [![Classification ML Deployment](https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-on-spaces-md.svg)](https://huggingface.co/spaces/densaiko/EmployeePromotionPrediction)
 - Regression ML Deployment [![Regression ML Deployment](https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-on-spaces-md.svg)](https://huggingface.co/spaces/densaiko/AHMPredictCar)
+- RAG AI Deployment [![RAG AI Deployment](https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-on-spaces-md.svg)](https://huggingface.co/spaces/densaiko/AstraHondaMotorV2)
 
 ---
 
