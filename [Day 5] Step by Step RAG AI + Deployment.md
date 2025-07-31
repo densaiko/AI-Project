@@ -1,1 +1,1 @@
-
+Step-by-Step RAG AI & Deployment [![Step-by-Step RAG AI & Deployment](https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-on-spaces-md.svg)]([https://huggingface.co/spaces/densaiko/EmployeePromotionPrediction](https://medium.com/cultigo/from-pdf-to-rag-building-an-ai-assistant-with-python-and-hugging-face-cf631ea0eaf4))
